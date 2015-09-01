@@ -1,0 +1,64 @@
+out_to_x no
+own_window no
+out_to_console yes
+background no
+max_text_width 0
+
+# Update interval in seconds
+update_interval 1.0
+
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+
+# Shortens units to a single character (kiB->k, GiB->G, etc.). Default is off.
+short_units yes
+
+# How strict should if_up be when testing an interface for being up?
+# The value is one of up, link or address, to check for the interface
+# being solely up, being up and having link or being up, having link
+# and an assigned IP address. 
+if_up_strictness address
+
+# Add spaces to keep things from moving about?  This only affects certain objects.
+# use_spacer should have an argument of left, right, or none
+use_spacer left
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale yes
+
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 2
+
+#use_xft yes
+#xftfont Helvetica:size=15
+
+# Stuff after 'TEXT' will be formatted on screen
+TEXT
+
+# JSON for i3bar
+ [
+ 
+ 	{ "icon": "/uio/hume/student-u56/espenaj/.i3/xbm8x8/diskette.xbm", \
+		"full_text" : "${fs_free /home}" , "color" : "\#ffffff" },
+
+	{ "icon": "/uio/hume/student-u56/espenaj/.i3/xbm8x8/mem.xbm", "full_text":\
+	"${memperc}%" , "color" : ${if_match ${memperc}<90}"\#ffffff"${else}"
+	\#ff0000"${endif} },
+
+	{"name": "cpu", "icon": "/uio/hume/student-u56/espenaj/.i3/xbm8x8/cpu.xbm",\
+		"icon_color": "\#ffffff","color": "\#ffffff", "full_text": \
+		   "[ ${cpu cpu1}% ${cpu cpu2}% ${cpu cpu3}% ${cpu cpu4}%]"},  \
+
+	{"name": "volume", "icon": "/uio/hume/student-u56/espenaj/.i3/xbm8x8/spkr_03.xbm", \
+		"full_text": "[${exec /uio/hume/student-u56/espenaj/.i3/conky/pacvol.sh display}",\
+		"color":"\#ffffff"},
+
+	{ "name": "date", "full_text": "[${time %A %d.%d.%y}]" },
+
+	{ "name": "time", "full_text": "[${time %H:%M:%S}]"},
+
+
+	{ "full_text" : "" }
+ ],
