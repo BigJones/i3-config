@@ -39,6 +39,14 @@ bindsym Mod1+d exec dmenu_run
 bindsym Mod4+l exec i3lock
 bindsym Mod4+Shift+l exec xscreensaver-command --lock
 
+# Border/window colors
+# class                 border  backgr. text    indicator
+client.focused          #4c7899 #285577 #ffffff #2e9ef4
+client.focused_inactive #333333 #5f676a #ffffff #484e50
+client.unfocused        #333333 #222222 #888888 #292d2e
+client.urgent           #2f343a #900000 #ffffff #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000
+
 # change focus
 bindsym Mod1+h focus left
 bindsym Mod1+j focus down
@@ -64,7 +72,7 @@ bindsym Mod1+Shift+Up move up
 bindsym Mod1+Shift+Right move right
 
 # split in horizontal orientation
-#bindsym Mod1+h split horizontal
+bindsym Mod1+c split horizontal
 
 # split in vertical orientation
 bindsym Mod1+v split vertical
@@ -196,5 +204,5 @@ for_window[class="feh"] border normal
 for_window[title="YAD"] floating enable
 new_window 1pixel
 
-#exec --no-startup-id ~/.startup.sh
+#exec --no-startupid ~/.startup.sh
 exec --no-startup-id ~/.i3/.i3init
