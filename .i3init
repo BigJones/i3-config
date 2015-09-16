@@ -1,0 +1,5 @@
+#!/bin/sh
+xrdb ~/.Xresources
+feh --bg-center --randomize ~/Dropbox/wallpaper/*
+setxkbmap us
+xset -b

@@ -24,7 +24,7 @@
 floating_modifier Mod1
 
 # start a terminal
-bindsym Mod1+Return exec xterm
+bindsym Mod1+Return exec uxterm
 
 # kill focused window
 bindsym Mod1+Shift+q kill
@@ -35,6 +35,9 @@ bindsym Mod1+d exec dmenu_run
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym Mod1+d exec --no-startup-id i3-dmenu-desktop
+
+bindsym Mod4+l exec i3lock
+bindsym Mod4+Shift+l exec xscreensaver-command --lock
 
 # change focus
 bindsym Mod1+h focus left
@@ -61,10 +64,10 @@ bindsym Mod1+Shift+Up move up
 bindsym Mod1+Shift+Right move right
 
 # split in horizontal orientation
-#bindsym Mod1+h split h
+#bindsym Mod1+h split horizontal
 
 # split in vertical orientation
-#bindsym Mod1+v split v
+bindsym Mod1+v split vertical
 
 # enter fullscreen mode for the focused container
 bindsym Mod1+f fullscreen
@@ -167,9 +170,10 @@ bar {
 	}
 
 	#font xft: snap Regular 8 
-	#font xft: snap 18 
+    #font pango:DejaVu Sans Mono, Icons 8
+    font pango: ohsnap, Icons 10
 #status_command $HOME/bin/conky-i3bar
-	status_command $HOME/i3barconky
+	status_command $HOME/.i3/i3status.conf
 #status_command py3status -s -c /uio/hume/student-u56/espenaj/.i3/test
 #status_command py3status -s
 	position top
@@ -185,7 +189,12 @@ bar {
 # Please remove the following exec line:
 #######################################################################
 
-for_window[class="Xterm"] 1pixel
+for_window[class="Firefox"] border normal
+for_window[class="Feh"] border normal
+for_window[class="feh"] border normal
+#for_window[title="jones@Alleria"] border 1pixel
 for_window[title="YAD"] floating enable
+new_window 1pixel
 
-exec --no-startup-id ~/.startup.sh
+#exec --no-startup-id ~/.startup.sh
+exec --no-startup-id ~/.i3/.i3init
