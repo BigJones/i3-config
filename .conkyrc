@@ -45,23 +45,8 @@ TEXT
 
 # JSON for i3bar
  [
-    {"name": "wifi", "color": "\#5bb789", "full_text": \
-        "\uf1eb  ${wireless_essid wlp2s0}" },
-
-
-    {"name": "battery", "color": "\#6BBE94", "full_text": "\
-${if_match "$battery_short" == "C $battery_percent%" }\uf0e7 ${endif}\
-${if_match $battery_percent > 85} \uf240 ${else}\
-${if_match $battery_percent > 50} \uf241 ${else}\
-${if_match $battery_percent > 30} \uf242 ${else}\
-${if_match $battery_percent > 10} \uf243 ${else}\
-\uf244 ${endif} ${endif} ${endif} ${endif}\
-${battery_percent}% ${format_time $battery_time "\hh \mm}"},
-
-
 	{"name": "memory",  "full_text":\
-	    "\uf16c ${memperc}%" , "color" : ${if_match ${memperc}<90}"\#79C49E"${else}"
-	    \#ff0000"${endif} },
+	    "\uf16c ${memperc}%" , "color" : "\#79C49E" },
 
  	{"name": "disk", "color": "\#79C49E", "full_text" : "\uf0a0 ${fs_free /home}"  },
 
