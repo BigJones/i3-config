@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+status=0
+
+layout=$(setxkbmap -query | awk '
+    BEGIN{layout="";variant=""}
+	/^layout/{layout=$2}
+	/^variant/{variant=$2}
+	END{printf("%s%s",layout,variant)}')
+
+if [[ "$layout" == "no" ]]
+then
+	setlang="us"
+else 
+	setlang="no"
+fi
+
+case $BLOCK_BUTTON in
+	1) setxkbmap $setlang ;;
+esac
+
+full=$setlang
+
+echo $full
+exit $status
